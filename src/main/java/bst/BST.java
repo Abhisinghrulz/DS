@@ -4,6 +4,7 @@ package bst;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 import static java.lang.Integer.max;
 
@@ -34,6 +35,8 @@ public class BST {
         bst.levelOrderTraversal(bst.root);
         System.out.print("\nLevelReverseOrderTraversal : ");
         bst.levelReverseOrderTraversal(bst.root);
+        System.out.print("\nDepthFirstSearch or Vertical Order Traversal : ");
+        bst.DFS(bst.root);
         System.out.print("\nLeftView : ");
         bst.printLeftView(bst.root);
         System.out.print("\nRightView : ");
@@ -115,15 +118,15 @@ public class BST {
 
     private void inOrderTraversal(Node root) {
         if (root == null) return;
-        preOrderTraversal(root.lc);
+        inOrderTraversal(root.lc);
         System.out.print(root.data + " ");
-        preOrderTraversal(root.rc);
+        inOrderTraversal(root.rc);
     }
 
     private void postOrderTraversal(Node root) {
         if (root == null) return;
-        preOrderTraversal(root.lc);
-        preOrderTraversal(root.rc);
+        postOrderTraversal(root.lc);
+        postOrderTraversal(root.rc);
         System.out.print(root.data + " ");
     }
 
@@ -167,6 +170,18 @@ public class BST {
             queue.remove();
         }
 
+    }
+
+    //Depth First Search or vertical Order
+    public void DFS(Node root) {
+        Stack<Node> s = new Stack<Node>();
+        s.add(root);
+        while (!s.isEmpty()) {
+            Node x = s.pop();
+            if(x.rc!=null) s.add(x.rc);
+            if(x.lc!=null) s.add(x.lc);
+            System.out.print(" " + x.data);
+        }
     }
 
     private static void printLeftView(Node root) {
