@@ -7,6 +7,7 @@
 **PostOrderTraversal** : 1 4 7 6 3 13 14 10 8           LC RC Root
 
 **LevelOrderTraversal OR BFS(Breadth First Search)** : 8 3 10 1 6 14 4 7 13
+
 **LevelReverseOrderTraversal** : 8 10 3 14 6 1 13 7 4
 
 **DepthFirstSearch or Vertical Order Traversal** :  8 3 1 6 4 7 10 14 13
