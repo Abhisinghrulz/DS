@@ -1,48 +1,10 @@
-package bst;
+package bst.view;
 
 import java.util.*;
 
 public class BottomViewBT {
 
-    Node root;
     public static TreeMap<Integer, Integer> ht = new TreeMap<>();
-
-    public class Node {
-        Node lc;
-        Node rc;
-        int data;
-    }
-
-    public void insertItem(int data) {
-
-        Node newNode = new Node();
-        newNode.lc = null;
-        newNode.rc = null;
-        newNode.data = data;
-
-        if (root == null) {
-            root = newNode;
-            return;
-        }
-
-        Node p = root;
-        Node c = root;
-
-        while (c != null) {
-            p = c;
-            if (data < c.data) {
-                c = c.lc;
-            } else {
-                c = c.rc;
-            }
-        }
-
-        if (data < p.data) {
-            p.lc = newNode;
-        } else {
-            p.rc = newNode;
-        }
-    }
 
     public class QueuePack {
         int level;
@@ -62,7 +24,7 @@ public class BottomViewBT {
         // add root with level 0 (create a queue item pack)
         queue.add(new QueuePack(level, root));
         while (!queue.isEmpty()) {
-            QueuePack q = queue.remove();
+            QueuePack q = queue.poll();
             // take out the items from the package
             Node tnode = q.tnode;
             int lvl = q.level;
@@ -79,7 +41,6 @@ public class BottomViewBT {
                 queue.add(new QueuePack(lvl + 1, tnode.rc));
             }
         }
-
     }
 
     public static void display() { // print the bottom view.
@@ -92,17 +53,39 @@ public class BottomViewBT {
 
     public static void main(String[] args) {
         BottomViewBT bottomViewBT = new BottomViewBT();
-        bottomViewBT.insertItem(8);
-        bottomViewBT.insertItem(3);
-        bottomViewBT.insertItem(10);
-        bottomViewBT.insertItem(1);
-        bottomViewBT.insertItem(6);
-        bottomViewBT.insertItem(14);
-        bottomViewBT.insertItem(4);
-        bottomViewBT.insertItem(7);
-        bottomViewBT.insertItem(13);
+        Node root = new Node(1);
+        root.lc = new Node(2);
+        root.rc = new Node(3);
+        root.lc.lc = new Node(4);
+        root.lc.rc = new Node(5);
+        root.rc.lc = new Node(6);
+        root.rc.rc = new Node(7);
 
-        bottomViewBT.bottomView(bottomViewBT.root, 0);
+        bottomViewBT.bottomView(root, 0);
         bottomViewBT.display();
+        //bottomViewBT.levelOrderTraversal(bottomViewBT.root);
     }
+
+
+    private void levelOrderTraversal(Node root) {
+        if (root == null) return;
+        Queue<Node> queue = new LinkedList<Node>();
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            Node current = queue.peek();
+            System.out.print(current.data + " ");
+
+            if (current.lc != null) {
+                queue.add(current.lc);
+            }
+            if (current.rc != null) {
+                queue.add(current.rc);
+            }
+
+            queue.remove();
+        }
+
+    }
+
 }

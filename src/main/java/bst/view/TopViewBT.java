@@ -1,11 +1,11 @@
-package bst;
+package bst.view;
 
 import java.util.*;
 
 public class TopViewBT {
 
     Node root;
-    public static Map<Integer, Integer> ht = new LinkedHashMap<>();
+    public static TreeMap<Integer, Integer> ht = new TreeMap<>();
 
     public class Node {
         Node lc;

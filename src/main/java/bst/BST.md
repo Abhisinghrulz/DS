@@ -68,3 +68,13 @@ Take the element from the preOrder and now all the elements in the InOrder which
 Will be on the left side of the binary tree from it
 ````
 
+
+BOTTOM VIEW
+
+![BottomView](./images/BottomView.JPG)
+
+4 2 6 3 7 
+
+MAKE BST FROM PreOrder
+
+![BottomView](./images/BottomView.JPG)

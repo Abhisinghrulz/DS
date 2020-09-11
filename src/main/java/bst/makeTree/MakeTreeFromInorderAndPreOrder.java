@@ -1,4 +1,4 @@
-package bst;
+package bst.makeTree;
 
 /**
  * Inorder : Root Left Right

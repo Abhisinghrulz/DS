@@ -1,4 +1,6 @@
-package bst;
+package bst.makeTree;
+
+//https://algorithms.tutorialhorizon.com/construct-binary-search-tree-from-a-given-preorder-traversal-using-recursion/
 
 public class PreorderToTree {
     private int pIndex = 0;
