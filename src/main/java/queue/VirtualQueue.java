@@ -4,14 +4,14 @@ import java.util.Stack;
 
 public class VirtualQueue {
 
-    Stack<Integer> stackWithOldOnTop = new Stack<>();
+    private Stack<Integer> stackWithOldOnTop = new Stack<>();
     private Stack<Integer> stackWithNewOnTop = new Stack<>();
 
-    public void enqueue(int item) {
+    private void enqueue(int item) {
         stackWithNewOnTop.push(item);
     }
 
-    public int dequeue() {
+    private int dequeue() {
         shiftStacks();
         return stackWithOldOnTop.pop();
     }
