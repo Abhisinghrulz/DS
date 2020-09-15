@@ -6,7 +6,7 @@ public class InorderPostOrderToTree {
 
     public Node makeBTree(int[] inOrder, int[] postOrder, int iStart, int iEnd,
                           int postStart, int postEnd) {
-        if (iStart > iEnd || postEnd > postEnd) {
+        if (iStart > iEnd || postStart > postEnd) {
             return null;
         }
 
