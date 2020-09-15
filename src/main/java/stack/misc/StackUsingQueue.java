@@ -3,10 +3,18 @@ package stack.misc;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * 1) Take two queue
+ * 2) For push keep on pushing to original queue
+ * 3) For pop : Dequeue all the elements apart from last element in queue.
+ *              Pop that element and return
+ *              Make the originalQueue as tempQueue
+ *              Reinitialize the TempQueue
+ */
 public class StackUsingQueue {
 
-    Queue<Integer> queue = new LinkedList<>();
-    Queue<Integer> tempQueue = new LinkedList<>();
+    private Queue<Integer> queue = new LinkedList<>();
+    private Queue<Integer> tempQueue = new LinkedList<>();
 
     public void push(int data) {
         queue.add(data);

@@ -10,12 +10,12 @@ public class QueueImpl {
     private int front = 0;
     private int rear = -1;
 
-    public QueueImpl(int queueSize) {
+    private QueueImpl(int queueSize) {
         this.capacity = queueSize;
         this.queueArr = new int[queueSize];
     }
 
-    public void enqueue(int item) throws Exception {
+    private void enqueue(int item) throws Exception {
         if (isQueueFull()) {
             throw new Exception("Queue is already full");
         } else {

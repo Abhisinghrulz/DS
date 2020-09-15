@@ -4,6 +4,9 @@ import java.util.Stack;
 
 /**
  *
+ * Same as PrefixToPostfix just iterate from left to right and reverse the statement
+ * String temp = post_exp.charAt(i) + op2 + op1;
+ *
  * Read the Postfix expression from left to right
  * If the symbol is an operand, then push it onto the Stack
  * If the symbol is an operator, then pop two operands from the Stack
@@ -40,10 +43,8 @@ public class PostfixToPrefix {
             if (isOperator(post_exp.charAt(i))) {
 
                 // pop two operands from stack
-                String op1 = s.peek();
-                s.pop();
-                String op2 = s.peek();
-                s.pop();
+                String op1 = s.pop();
+                String op2 = s.pop();
 
                 // concat the operands and operator
                 String temp = post_exp.charAt(i) + op2 + op1;

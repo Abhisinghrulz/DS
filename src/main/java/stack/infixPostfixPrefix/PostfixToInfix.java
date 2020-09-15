@@ -4,6 +4,8 @@ import java.util.Stack;
 
 /**
  *
+ * In simple Terms same as PrefixToInfix : Just Iterate from left to Right
+ *
  * 1.While there are input symbol left
  * …1.1 Read the next symbol from the input.
  * 2.If the symbol is an operand
