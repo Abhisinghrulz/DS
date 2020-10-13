@@ -1,0 +1,1 @@
+https://howtodoinjava.com/design-patterns/behavioral/observer-design-pattern/
