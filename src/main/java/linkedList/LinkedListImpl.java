@@ -147,5 +147,21 @@ public class LinkedListImpl {
 
     }
 
+    //Floyd’s Cycle-Finding Algorithm
+    public boolean detectLoop(){
+        Node slowPtr = head;
+        Node fastPtr = head;
 
+        while(slowPtr!=null && fastPtr!=null && fastPtr.next!=null)
+        {
+            slowPtr = slowPtr.next;
+            fastPtr = fastPtr.next.next;
+            if(slowPtr == fastPtr)
+            {
+                System.out.println("FoundLoop");
+                return true;
+            }
+        }
+        return false;
+    }
 }

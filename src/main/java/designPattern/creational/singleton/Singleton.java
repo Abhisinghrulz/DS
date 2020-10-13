@@ -35,3 +35,4 @@ public class Singleton implements Cloneable, Serializable {
         throw new CloneNotSupportedException();
     }
 }
+
