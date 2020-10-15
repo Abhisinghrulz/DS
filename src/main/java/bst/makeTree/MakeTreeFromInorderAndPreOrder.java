@@ -23,6 +23,7 @@ public class MakeTreeFromInorderAndPreOrder {
         int index = getInorderIndex(inOrder, iStart, iEnd, root.data);
         root.left = makeBTree(inOrder, preOrder, iStart, index - 1);
         root.right = makeBTree(inOrder, preOrder, index + 1, iEnd);
+
         return root;
     }
 

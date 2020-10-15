@@ -2,9 +2,7 @@ package bst;
 
 //https://algorithms.tutorialhorizon.com/top-25-problems-on-binary-trees-binary-search-trees/
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 import static java.lang.Integer.max;
 
@@ -56,19 +54,32 @@ public class BST {
         bst.path(bst.root, maxLeaf);
 
         System.out.println("\nSortedArrayToBst");
-        int [] arrA = {2,3,6,7,8,9,12,15,16,18,20};
-        bst.sortedArrayToBst(arrA, 0, arrA.length-1);
+        int[] arrA = {2, 3, 6, 7, 8, 9, 12, 15, 16, 18, 20};
+        bst.sortedArrayToBst(arrA, 0, arrA.length - 1);
         bst.showAll(bst.root);
 
         System.out.println("\n---Balanced Tree : A tree where no leaf is much farther away from the root than any other leaf. ");
-        System.out.println("IsBalancedTree : "+ isBalancedNaive(bst.root));
+        System.out.println("IsBalancedTree : " + isBalancedNaive(bst.root));
 
         System.out.println("Find path which has sum equal to give value");
         bst.hasPath(bst.root, 11, "");
 
         System.out.println("Print all paths from root to leaf");
-        int [] path = new int [100];
+        int[] path = new int[100];
         bst.printPaths(bst.root, path, 0);
+
+        System.out.println("Paths");
+        bst.printPaths(bst.root, new ArrayList());
+
+        boolean isPresent = bst.ifNodePresent(bst.root, 13);
+        System.out.println("Node is present in bst : " + isPresent);
+
+        System.out.println("Parent Node is " + bst.getParentNode(bst.root, 13).data);
+
+        System.out.println("Sibling Node " + bst.getSiblingNode(bst.root, 1).data);
+
+        System.out.println("Inorder Parent : " + bst.getInorderParent(bst.root, 13).data);
+
     }
 
 
@@ -178,8 +189,8 @@ public class BST {
         s.add(root);
         while (!s.isEmpty()) {
             Node x = s.pop();
-            if(x.rc!=null) s.add(x.rc);
-            if(x.lc!=null) s.add(x.lc);
+            if (x.rc != null) s.add(x.rc);
+            if (x.lc != null) s.add(x.lc);
             System.out.print(" " + x.data);
         }
     }
@@ -309,31 +320,31 @@ public class BST {
         return root;
     }
 
-    private void showAll(Node root){
-        if(root == null) return;
+    private void showAll(Node root) {
+        if (root == null) return;
         System.out.print(root.data + " ");
         showAll(root.lc);
         showAll(root.rc);
     }
 
-    private static boolean isBalancedNaive(Node root){
-        if(root==null)return true;
-        int heightDifference = height(root.lc)-height(root.rc);
-        if(Math.abs(heightDifference)>1){
+    private static boolean isBalancedNaive(Node root) {
+        if (root == null) return true;
+        int heightDifference = height(root.lc) - height(root.rc);
+        if (Math.abs(heightDifference) > 1) {
             return false;
-        }else{
+        } else {
             return isBalancedNaive(root.lc) && isBalancedNaive(root.rc);
         }
     }
 
-    private void hasPath(Node root, int sum, String path){
-        if(root!=null){
-            if(root.data>sum){ // if root is greater than Sum required, return
+    private void hasPath(Node root, int sum, String path) {
+        if (root != null) {
+            if (root.data > sum) { // if root is greater than Sum required, return
                 return;
-            }else{
-                path+=" " + root.data; //add root to path
-                sum=sum-root.data; // update the required sum
-                if(sum==0){ //if sum required =0, means we have found the path
+            } else {
+                path += " " + root.data; //add root to path
+                sum = sum - root.data; // update the required sum
+                if (sum == 0) { //if sum required =0, means we have found the path
                     System.out.println(path);
                 }
                 hasPath(root.lc, sum, path);
@@ -344,27 +355,275 @@ public class BST {
 
     //Print all paths from root to leaf
 
-    int [] paths = new int[500];
-    int pathLength =0;
-    private void printPaths(Node root, int [] path, int pathLen){
-        if(root==null){
+    int[] paths = new int[500];
+    int pathLength = 0;
+
+    private void printPaths(Node root, int[] path, int pathLen) {
+        if (root == null) {
             return;
         }
-        path[pathLen++]= root.data;
-        if(root.lc==null && root.rc==null){
-            print(path,pathLen);
-        }
-        else{
-            printPaths(root.lc,path,pathLen);
-            printPaths(root.rc,path,pathLen);
+        path[pathLen++] = root.data;
+        if (root.lc == null && root.rc == null) {
+            print(path, pathLen);
+        } else {
+            printPaths(root.lc, path, pathLen);
+            printPaths(root.rc, path, pathLen);
         }
     }
-    private void print(int [] path, int pathLen){
-        for(int i=0;i<pathLen;i++){
-            System.out.print(path[i]+ " ");
+
+    private void print(int[] path, int pathLen) {
+        for (int i = 0; i < pathLen; i++) {
+            System.out.print(path[i] + " ");
         }
         System.out.println();
     }
 
+    public void printPaths(Node root, ArrayList arr) {
+        if (root == null) {
+            return;
+        }
+        arr.add(root.data);
+
+        if (root.lc == null && root.rc == null) {
+            System.out.println(arr);
+        } else {
+            printPaths(root.lc, arr);
+            printPaths(root.rc, arr);
+        }
+
+        arr.remove(arr.size() - 1);
+    }
+
+    public boolean ifNodePresent(Node node, int val) {
+        if (node == null) {
+            return false;
+        }
+
+        boolean isPresent = false;
+
+        while (node != null) {
+            if (val < node.data) {
+                node = node.lc;
+            } else if (val > node.data) {
+                node = node.rc;
+            } else {
+                isPresent = true;
+                break;
+            }
+        }
+
+        return isPresent;
+    }
+
+    public Node getParentNode(Node node, int val) {
+        if (node == null) {
+            return null;
+        }
+
+        Node getParent = null;
+
+        while (node != null) {
+            if (val < node.data) {
+                getParent = node;
+                node = node.lc;
+            } else if (val > node.data) {
+                getParent = node;
+                node = node.rc;
+            } else {
+                break;
+            }
+        }
+
+        return getParent;
+    }
+
+    public Node getSiblingNode(Node node, int val) {
+        if (node == null || node.data == val) {
+            return null;
+        }
+
+        Node parentNode = null;
+
+        while (node != null) {
+            if (val < node.data) {
+                parentNode = node;
+                node = node.lc;
+            } else if (val > node.data) {
+                parentNode = node;
+                node = node.rc;
+            } else {
+                break;
+            }
+        }
+
+        if (parentNode.lc != null && val == parentNode.lc.data) {
+            return parentNode.rc;
+        }
+
+        if (parentNode.rc != null && val == parentNode.rc.data) {
+            return parentNode.lc;
+        }
+
+        return null;
+    }
+
+    public Node getInorderParent(Node node, int val) {
+        if (node == null) {
+            return null;
+        }
+
+        Node inorderParent = null;
+
+        while (node != null) {
+            if (val < node.data) {
+                inorderParent = node;
+                node = node.lc;
+            } else if (val > node.data) {
+                node = node.rc;
+            } else {
+                break;
+            }
+        }
+
+        return node != null ? inorderParent : null;
+    }
+
+    public int getMax(Node node) {
+        if (node == null) {
+            System.out.println("Tree is EMpty");
+            return -1;
+        }
+
+        while (node.rc != null) {
+            node = node.rc;
+        }
+
+        return node.data;
+    }
+
+    public int getMin(Node node) {
+        if (node == null) {
+            System.out.println("Tree is EMpty");
+            return -1;
+        }
+
+        while (node.lc != null) {
+            node = node.lc;
+        }
+
+        return node.data;
+    }
+
+    public boolean ifPairExistsUtil(Node node, int sum, HashSet<Integer> set) {
+        if (node == null) {
+            return false;
+        }
+
+        if (set.contains(sum - node.data)) {
+            return true;
+        }
+
+        set.add(node.data);
+
+        if (ifPairExistsUtil(node.lc, sum, set)) {
+            return true;
+        }
+
+        return ifPairExistsUtil(node.rc, sum, set);
+    }
+
+    int countElement = 0;
+    public Node getKthSmallestElementBST(Node node, int k) {
+        if(node == null) {
+            return null;
+        }
+
+        Node left = getKthSmallestElementBST(node.lc, k);
+
+        if(left != null) {
+            return left;
+        }
+
+        countElement++;
+        if(countElement == k) {
+            return node;
+        }
+
+        return getKthSmallestElementBST(node.rc, k);
+    }
+
+    int countLargesElement = 0;
+
+    /**
+     *
+     * @param node
+     * @param k
+     * @return
+     *
+     *
+     * Solution
+     * - Traverse BST in inorder manner from right to left
+     * - Create a count variable
+     * - We increase count when we hit a node
+     * - We check if count is equal to k, then that is out kth largest element
+     * - If node is returning null, then k is greater then total node size
+     */
+    public Node getKthLargestElementBST(Node node, int k) {
+        if(node == null) {
+            return null;
+        }
+
+        Node right = getKthLargestElementBST(node.rc, k);
+
+        if(right != null) {
+            return right;
+        }
+
+        countLargesElement++;
+        if(countLargesElement == k) {
+            return node;
+        }
+
+        return getKthLargestElementBST(node.lc, k);
+    }
+
+    /**
+     *
+     * Solution:
+     * - We need to check the value of both trees node at a time & then recursively call for remaining nodes
+     * - Recursively check left of 1st tree with right of 2nd tree & similarily right of 1st tree with left of 2nd tree
+     */
+    public boolean ifMirrorTree(Node node1, Node node2) {
+        if (node1 == null && node2 == null) {
+            return true;
+        }
+
+        if (node1 == null || node2 == null) {
+            return false;
+        }
+
+        return node1.data == node2.data
+                && ifMirrorTree(node1.lc, node2.rc)
+                && ifMirrorTree(node1.rc, node2.lc);
+    }
+
+    int diameter;
+
+    public int getDiameter(Node node) {
+        if (node == null) {
+            return 0;
+        }
+
+        if(node.lc == null && node.rc == null) {
+            return 1;
+        }
+
+        int lH = getDiameter(node.lc);
+        int rH = getDiameter(node.rc);
+
+        diameter = Math.max(diameter, lH + rH + 1);
+
+        return Math.max(lH, rH) + 1;
+    }
 
 }
