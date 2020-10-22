@@ -1,0 +1,1 @@
+The total deletions would be = total length - longest palindromic subsequence
