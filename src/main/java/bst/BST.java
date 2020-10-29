@@ -80,6 +80,29 @@ public class BST {
 
         System.out.println("Inorder Parent : " + bst.getInorderParent(bst.root, 13).data);
 
+        System.out.println("MirrorTree");
+        bst.inOrderTraversal(bst.root);
+        System.out.println("----");
+        Node mirror = bst.mirrorTree(bst.root);
+        bst.inOrderTraversal(mirror);
+
+        System.out.println("----LevelOrderTraversal----");
+        bst.levelOrderTraversalUsingQueueLineByLine(bst.root);
+
+        System.out.println("---Min Distance to Leaf---");
+        System.out.println(bst.getMinDistanceToLeaf(bst.root));
+
+        System.out.println("---Min Distance to Leaf---");
+        System.out.println(bst.getMaxDistanceToLeaf(bst.root));
+
+        System.out.println(bst.findLCA(bst.root, 1, 14).data);
+
+        System.out.println("Distance between two nodes : " + bst.distanceBetweenTwoNodes(bst.root, 1, 4));
+
+        System.out.println("Diameter of the tree : " + bst.getDiameter1(bst.root));
+
+        System.out.println("Print Nodes at distance kth from node : ");
+        bst.printNodesAtKthDistanceFromRoot(bst.root, 2);
     }
 
 
@@ -120,6 +143,9 @@ public class BST {
         }
     }
 
+    /**
+     * Traversal
+     */
     private void preOrderTraversal(Node root) {
         if (root == null) return;
         System.out.print(root.data + " ");
@@ -533,19 +559,20 @@ public class BST {
     }
 
     int countElement = 0;
+
     public Node getKthSmallestElementBST(Node node, int k) {
-        if(node == null) {
+        if (node == null) {
             return null;
         }
 
         Node left = getKthSmallestElementBST(node.lc, k);
 
-        if(left != null) {
+        if (left != null) {
             return left;
         }
 
         countElement++;
-        if(countElement == k) {
+        if (countElement == k) {
             return node;
         }
 
@@ -555,13 +582,9 @@ public class BST {
     int countLargesElement = 0;
 
     /**
-     *
      * @param node
      * @param k
-     * @return
-     *
-     *
-     * Solution
+     * @return Solution
      * - Traverse BST in inorder manner from right to left
      * - Create a count variable
      * - We increase count when we hit a node
@@ -569,18 +592,18 @@ public class BST {
      * - If node is returning null, then k is greater then total node size
      */
     public Node getKthLargestElementBST(Node node, int k) {
-        if(node == null) {
+        if (node == null) {
             return null;
         }
 
         Node right = getKthLargestElementBST(node.rc, k);
 
-        if(right != null) {
+        if (right != null) {
             return right;
         }
 
         countLargesElement++;
-        if(countLargesElement == k) {
+        if (countLargesElement == k) {
             return node;
         }
 
@@ -588,7 +611,6 @@ public class BST {
     }
 
     /**
-     *
      * Solution:
      * - We need to check the value of both trees node at a time & then recursively call for remaining nodes
      * - Recursively check left of 1st tree with right of 2nd tree & similarily right of 1st tree with left of 2nd tree
@@ -607,23 +629,194 @@ public class BST {
                 && ifMirrorTree(node1.rc, node2.lc);
     }
 
-    int diameter;
-
-    public int getDiameter(Node node) {
+    public Node mirrorTree(Node node) {
         if (node == null) {
+            return null;
+        }
+
+        Node t = node.lc;
+        node.lc = node.rc;
+        node.rc = t;
+
+        mirrorTree(node.lc);
+        mirrorTree(node.rc);
+
+        return node;
+    }
+
+    public void levelOrderTraversalUsingQueueLineByLine(Node node) {
+        if (node == null) {
+            return;
+        }
+
+        Queue<Node> a = new LinkedList<Node>();
+        a.add(node);
+
+        while (true) {
+
+            int queueSize = a.size();
+            if (queueSize == 0) {
+                break;
+            }
+
+            while (queueSize > 0) {
+
+                Node temp = a.peek();
+                System.out.print(temp.data + " ");
+
+                a.remove();
+
+                if (temp.lc != null) {
+                    a.add(temp.lc);
+                }
+
+                if (temp.rc != null) {
+                    a.add(temp.rc);
+                }
+
+                queueSize--;
+            }
+
+            System.out.println();
+        }
+    }
+
+    public boolean ifFoldableTree(Node node) {
+        if (node == null) {
+            return true;
+        }
+        BST bst = new BST();
+        return bst.ifMirrorTree(node.lc, node.rc);
+    }
+
+    public int getMinDistanceToLeaf(Node node) {
+        if (node == null) {
+            return Integer.MAX_VALUE;
+        }
+
+        if (node.lc == null && node.rc == null) {
             return 0;
         }
 
-        if(node.lc == null && node.rc == null) {
-            return 1;
-        }
-
-        int lH = getDiameter(node.lc);
-        int rH = getDiameter(node.rc);
-
-        diameter = Math.max(diameter, lH + rH + 1);
-
-        return Math.max(lH, rH) + 1;
+        return 1 + Math.min(getMinDistanceToLeaf(node.lc), getMinDistanceToLeaf(node.rc));
     }
 
+    public int getMaxDistanceToLeaf(Node node) {
+        if (node == null) {
+            return Integer.MAX_VALUE;
+        }
+
+        if (node.lc == null && node.rc == null) {
+            return 0;
+        }
+
+        return 1 + Math.max(getMaxDistanceToLeaf(node.lc), getMaxDistanceToLeaf(node.rc));
+    }
+
+    public Node findLCA(Node node, int n1, int n2) {
+        if (node == null) {
+            return null;
+        }
+
+        if (node.data == n1 || node.data == n2) {
+            return node;
+        }
+
+        Node leftLCA = findLCA(node.lc, n1, n2);
+        Node rightLCA = findLCA(node.rc, n1, n2);
+
+        if (leftLCA != null && rightLCA != null) {
+            return node;
+        }
+        return leftLCA != null ? leftLCA : rightLCA;
+
+    }
+
+    public int distanceBetweenTwoNodes(Node node, int n1, int n2) {
+        if (node == null) {
+            return -1;
+        }
+
+        Node lca = this.findLCA(node, n1, n2);
+
+        if (lca == null) {
+            return -1;
+        }
+
+        int d1 = distanceFromParentToNode(lca, n1, 0);
+        int d2 = distanceFromParentToNode(lca, n2, 0);
+
+        return d1 + d2;
+    }
+
+    public int distanceFromParentToNode(Node node, int val, int distance) {
+        if (node == null) {
+            return -1;
+        }
+
+        if (node.data == val) {
+            return distance;
+        }
+
+        int d = distanceFromParentToNode(node.lc, val, distance + 1);
+
+        if (d != -1) {
+            return d;
+        }
+
+        d = distanceFromParentToNode(node.rc, val, distance + 1);
+
+        return d;
+    }
+
+    int sumOfLeftLeafNode;
+
+    public void sumOfLeftLeafNodesAnother(Node node, boolean ifLeftLeaf) {
+        if (node == null) {
+            return;
+        }
+
+        if (node.lc == null && node.rc == null && ifLeftLeaf) {
+            sumOfLeftLeafNode = sumOfLeftLeafNode + node.data;
+        }
+
+        sumOfLeftLeafNodesAnother(node.lc, true);
+        sumOfLeftLeafNodesAnother(node.rc, false);
+    }
+
+    public int getDiameter1(Node root) {
+        int leftHeight = height(root.lc);
+        int rightHeight = height(root.rc);
+        return 1 + leftHeight + rightHeight;
+    }
+
+    public boolean ifIsomorphic(Node node1, Node node2) {
+        if (node1 == null && node2 == null) {
+            return true;
+        }
+
+        if (node1 == null || node2 == null) {
+            return false;
+        }
+
+        if (node1.data != node2.data) {
+            return false;
+        }
+
+        return (ifIsomorphic(node1.lc, node2.lc) && ifIsomorphic(node1.rc, node2.rc))
+                || (ifIsomorphic(node1.lc, node2.rc) && ifIsomorphic(node1.rc, node2.lc));
+
+    }
+
+    public void printNodesAtKthDistanceFromRoot(Node node, int k){
+        if(node == null){return;}
+        if(k==0){
+            System.out.println(node.data);
+        }
+        else
+        {
+            printNodesAtKthDistanceFromRoot(node.lc, k-1);
+            printNodesAtKthDistanceFromRoot(node.rc, k-1);
+        }
+    }
 }
