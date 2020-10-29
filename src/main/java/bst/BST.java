@@ -703,7 +703,7 @@ public class BST {
 
     public int getMaxDistanceToLeaf(Node node) {
         if (node == null) {
-            return Integer.MAX_VALUE;
+            return Integer.MIN_VALUE;
         }
 
         if (node.lc == null && node.rc == null) {

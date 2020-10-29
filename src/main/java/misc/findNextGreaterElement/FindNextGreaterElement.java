@@ -1,4 +1,4 @@
-package misc;
+package misc.findNextGreaterElement;
 
 //https://www.geeksforgeeks.org/find-next-greater-number-set-digits/
 
