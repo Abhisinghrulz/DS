@@ -103,6 +103,8 @@ public class BST {
 
         System.out.println("Print Nodes at distance kth from node : ");
         bst.printNodesAtKthDistanceFromRoot(bst.root, 2);
+
+        System.out.println(bst.binaryTreePaths(bst.root));
     }
 
 
@@ -819,4 +821,32 @@ public class BST {
             printNodesAtKthDistanceFromRoot(node.rc, k-1);
         }
     }
+
+    public List<String> binaryTreePaths(Node root1) {
+        List<String> paths = new ArrayList<>();
+        if (root1 == null) {
+            return paths;
+        }
+        binaryTreePathsDfs(root1, "", paths);
+        return paths;
+    }
+
+    private void binaryTreePathsDfs(Node root, String path, List<String> paths) {
+        path += root.data;
+
+        if (root.lc == null && root.rc == null) {
+            paths.add(path);
+            return;
+        }
+
+        if (root.lc != null) {
+            binaryTreePathsDfs(root.lc, path + "->", paths);
+        }
+
+        if (root.rc != null) {
+            binaryTreePathsDfs(root.rc, path + "->", paths);
+        }
+    }
+
+
 }
