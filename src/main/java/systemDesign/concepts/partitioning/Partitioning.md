@@ -51,3 +51,10 @@ To solve this problem we use **consistent Hashing**
 https://www.acodersjourney.com/system-design-interview-consistent-hashing/
 
 ![DFS](./C1.JPG)
+
+
+![DFS](./Sharding.PNG)
+
+Mongos communicates with config server to know data is stored in which replica cluster.
+
+mongod is the primary daemon process for the MongoDB system. It handles data requests, manages data access, and performs background management operations.

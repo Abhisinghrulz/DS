@@ -1,0 +1,1 @@
+A CDN (Content Delivery Network) is a highly-distributed platform of servers that helps to minimize delays in loading web page content by reducing the physical distance between the server and the user.
