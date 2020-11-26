@@ -121,15 +121,14 @@ public class LinkedListImpl {
         Node l1Node = l1.head;
         Node l2Node = l2.head;
 
-        while (l1Node != null || l2Node != null) {
-            if (l1Node != null && l2Node != null) {
-                if (l1Node.data < l2Node.data) {
-                    l3.insertItem(l1Node.data);
-                    l1Node = l1Node.next;
-                } else {
-                    l3.insertItem(l2Node.data);
-                    l2Node = l2Node.next;
-                }
+        while (l1Node != null && l2Node != null) {
+            if (l1Node.data <= l2Node.data) {
+                l3.insertItem(l1Node.data);
+                l1Node = l1Node.next;
+            }else
+            {
+                l3.insertItem(l2Node.data);
+                l2Node = l2Node.next;
             }
         }
 
@@ -143,25 +142,44 @@ public class LinkedListImpl {
             l2Node = l2Node.next;
         }
 
+
         return l3;
 
     }
 
     //Floyd’s Cycle-Finding Algorithm
-    public boolean detectLoop(){
+    public boolean detectLoop() {
         Node slowPtr = head;
         Node fastPtr = head;
 
-        while(slowPtr!=null && fastPtr!=null && fastPtr.next!=null)
-        {
+        while (slowPtr != null && fastPtr != null && fastPtr.next != null) {
             slowPtr = slowPtr.next;
             fastPtr = fastPtr.next.next;
-            if(slowPtr == fastPtr)
-            {
+            if (slowPtr == fastPtr) {
                 System.out.println("FoundLoop");
                 return true;
             }
         }
         return false;
+    }
+
+    public void showAll(Node node) {
+
+        while (node != null) {
+            System.out.println(node.data);
+            node = node.next;
+        }
+    }
+
+    public static void main(String[] args) {
+        LinkedListImpl linkedList = new LinkedListImpl();
+        LinkedListImpl linkedList1 = new LinkedListImpl();
+        linkedList1.insertItem(1);
+        linkedList1.insertItem(3);
+        LinkedListImpl linkedList2 = new LinkedListImpl();
+        linkedList1.insertItem(1);
+
+        //linkedList.mergeTwoSortedLinkedList(linkedList1, linkedList2);
+        linkedList.showAll(linkedList.mergeTwoSortedLinkedList(linkedList1, linkedList2).head);
     }
 }
