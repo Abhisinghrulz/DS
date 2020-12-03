@@ -4,7 +4,8 @@
 ```
 HashMap is not synchronized, it allows one null key and many null value
 
-Concurrent hashMap is synchronized thread safe, it doesn't allow null key and value.
+Concurrent hashMap is synchronized thread safe, it doesn't allow null key and value. Because it doesn't have contains key method so it will be not 
+possible to determine whether null specifies like no value is present or null is the value
 
 Map synchronizedMap = Collections.synchronizedMap(hashMap);
 
