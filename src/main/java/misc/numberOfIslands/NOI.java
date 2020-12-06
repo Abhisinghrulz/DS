@@ -2,6 +2,8 @@ package misc.numberOfIslands;
 
 /**
  * https://www.youtube.com/watch?v=o8S2bO3pmO4&list=PLi9RQVmJD2fZGdIX-y3-X37YUAWxh6GqH&index=10
+ *
+ * https://leetcode.com/problems/number-of-islands/
  */
 public class NOI {
     public static void main(String[] args) {
@@ -26,7 +28,7 @@ public class NOI {
     }
 
     private int dfs(char[][] grid, int i, int j) {
-        if (i < 0 || i == grid.length || j == 0 || j == grid[i].length || grid[i][j] == '0') {
+        if (i < 0 || i >= grid.length || j < 0 || j >= grid[i].length || grid[i][j] == '0') {
             return 0;
         }
         grid[i][j] = '0';

@@ -2,6 +2,8 @@ package misc.bestTimeToBuyAndSellStock.bestTimeStock1;
 
 /**
  * https://www.youtube.com/watch?v=mj7N8pLCJ6w&list=PLi9RQVmJD2fZGdIX-y3-X37YUAWxh6GqH&index=4
+ *
+ * https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
  */
 public class BestTimeToBuyAndSellStock {
     public static void main(String[] args) {
