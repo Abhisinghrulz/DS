@@ -10,7 +10,7 @@ public class MergeSort {
         MergeSort mergeSort = new MergeSort();
         mergeSort.sort(inputArr);
         for (int i : inputArr) {
-            System.out.print(i+ " ");
+            System.out.print(i + " ");
         }
     }
 
@@ -38,7 +38,6 @@ public class MergeSort {
         int i = lowerIndex;
         int j = middle + 1;
         int k = lowerIndex;
-
         while (i <= middle && j <= higherIndex) {
             if (tempArray[i] <= tempArray[j]) {
                 array[k] = tempArray[i];
@@ -49,19 +48,15 @@ public class MergeSort {
             }
             k++;
         }
-
         while (i <= middle) {
             array[k] = tempArray[i];
             k++;
             i++;
         }
-
         while (j <= higherIndex) {
             array[k] = tempArray[j];
             k++;
             j++;
         }
-
     }
-
 }

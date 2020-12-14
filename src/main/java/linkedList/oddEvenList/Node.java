@@ -1,9 +1,9 @@
 package linkedList.oddEvenList;
 
 public class Node {
-    int data;
-    Node next;
-    Node(int data)
+    public int data;
+    public Node next;
+    public Node(int data)
     {
         this.data = data;
     }
