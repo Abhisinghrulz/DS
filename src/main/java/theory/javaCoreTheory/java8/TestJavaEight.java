@@ -19,6 +19,7 @@ public class TestJavaEight {
         //Two ways to gener
         Stream.of(arrayOfEmps);
         employees.stream();
+        Stream<Integer> integerStream = Stream.of(1, 2, 4);
 
         //For Each
         employees.stream().forEach(e -> e.salaryIncrement(10.0));
@@ -67,6 +68,10 @@ public class TestJavaEight {
 
         System.out.println(testJavaEight.totalSum(employees));
 
+        Map<String,String> map = new LinkedHashMap<>();
+        map.put("AB","CD");
+        map.put("DE","EG");
+        System.out.println(map.keySet().stream().collect(Collectors.toList()));
     }
 
     private List<Integer> getIdsOfEmployeeWithSalaryMoreThan5000(List<Employee> employees, Double salary) {
