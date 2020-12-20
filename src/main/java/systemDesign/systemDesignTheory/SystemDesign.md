@@ -81,7 +81,7 @@ The combined data from all shards is the same as the data from the original data
 ![DFS](./images/C1.JPG)
 
 
-![DFS](./images/Sharding.PNG)
+![DFS](./images/Sharding.png)
 
 
 **MONGO**
@@ -102,3 +102,19 @@ Vertical scaling is the adding of extra power, memory etc to an existing machine
 Horizontal scaling means adding extra machines to a system to handle the increase in load.
 Horizontal scaling is also known as scale-out. In horizontal scaling, we add more machines and
 set it up as a cluster of machines to handle the increase or decrease in requirements. 
+
+
+**SQL VS NOSQL**
+````
+SQL : Schema fixed
+ACID
+
+NOSQL : Schema not fixed    
+Storing data across in different regions
+
+````
+
+
+![DFS](./images/CAP.PNG)
+
+![DFS](./images/RdbmsVsNoSQL.PNG)
