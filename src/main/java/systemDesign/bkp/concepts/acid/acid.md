@@ -11,7 +11,7 @@ Consistency : Make consistent record in terms of validate all rule and constrain
 
 Isolation : Make sure that two transaction is unaware to each other.
 
-Durability : committed data stored foreve
+Durability : committed data stored forever
 
 ![DFS](./ACID.JPG)
 ![DFS](./ACID2.JPG)
