@@ -114,7 +114,19 @@ Storing data across in different regions
 
 ````
 
-
 ![DFS](./images/CAP.PNG)
 
 ![DFS](./images/RdbmsVsNoSQL.PNG)
+
+
+https://medium.com/system-design-interview-question/top-5-resources-to-prepare-for-system-design-interview-e50139f3953d
+
+https://dzone.com/articles/making-your-microservices-resilient-and-fault-tole-1
+
+Resilience is the ability of a system to react to and recover from disturbances with minimal effect on its dynamic stability.
+
+Three Resilient Patterns
+1) Retry
+2) Circuit Breaker
+3) Timeout
+
