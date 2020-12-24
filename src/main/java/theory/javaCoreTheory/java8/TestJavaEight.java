@@ -72,6 +72,42 @@ public class TestJavaEight {
         map.put("AB","CD");
         map.put("DE","EG");
         System.out.println(map.keySet().stream().collect(Collectors.toList()));
+
+
+        Optional<Integer> max = Stream.of(1, 2, 3, 4, 5, 6, 7).max((e1, e2) -> {
+            if (e1 == e2) {
+                return 0;
+            } else if (e1 > e2) {
+                return 1;
+            } else {
+                return -1;
+            }
+        });
+
+        System.out.println(max.get());
+
+        Optional<Integer> min = Stream.of(1, 2, 3, 4, 5, 6, 7).min((e1, e2) -> {
+            if (e1 == e2) {
+                return 0;
+            } else if (e1 > e2) {
+                return 1;
+            } else {
+                return -1;
+            }
+        });
+
+        System.out.println(min.get());
+
+        List<Employee> collect = employees.stream()
+                .sorted((e1, e2) -> e1.getName().compareTo(e2.getName()))
+                .collect(Collectors.toList());
+        for(Employee e : collect)
+        {
+            System.out.println(e.getName());
+        }
+
+        int sum = Stream.of(1, 2, 3, 4, 5, 6, 7).mapToInt(e -> e).sum();
+        System.out.println(sum);
     }
 
     private List<Integer> getIdsOfEmployeeWithSalaryMoreThan5000(List<Employee> employees, Double salary) {
