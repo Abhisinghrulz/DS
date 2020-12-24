@@ -22,6 +22,9 @@ END;
 SQL
 
 DDL : Create, Alter, Drop, Rename, Truncate
+
 DQL : Select
+
 DML : Insert, Update, Delete
+
 DCL : Grant, Revoke
