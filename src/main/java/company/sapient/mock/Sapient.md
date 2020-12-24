@@ -21,10 +21,10 @@ END;
 
 SQL
 
-DDL : Create, Alter, Drop, Rename, Truncate
+**DDL** : Create, Alter, Drop, Rename, Truncate
 
-DQL : Select
+**DQL** : Select
 
-DML : Insert, Update, Delete
+**DML** : Insert, Update, Delete
 
-DCL : Grant, Revoke
+**DCL** : Grant, Revoke
