@@ -17,3 +17,11 @@ COMMIT;
 SELECT sal INTO up_sal FROM emp_table WHERE emp_no = eno;
 END; 
 
+
+
+SQL
+
+DDL : Create, Alter, Drop, Rename, Truncate
+DQL : Select
+DML : Insert, Update, Delete
+DCL : Grant, Revoke
