@@ -252,3 +252,10 @@ Remove Duplicates
 ````
         Set<Integer> setNoDups = listdup.stream().collect(Collectors.toSet());
 ````
+
+````
+private Map<Gender, List<Employee>> mapEmployeeNameByGender(List<Employee> employees) {
+        Map<Gender, List<Employee>> collect = employees.stream().collect(Collectors.groupingBy(Employee::getGender));
+        return collect;
+    }
+````
