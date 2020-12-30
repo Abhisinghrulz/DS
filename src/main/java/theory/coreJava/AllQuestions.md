@@ -5,7 +5,7 @@ OOPS Concepts and its implementation in Java
 2. Principles of OOP.
 3. Open closed principle.
 4. Difference between object oriented and object based language.
-5. Define class.
+5. Define class.Composition
 6. Object.
 7. Define a variable/data.
 8. Explain Diamond problem.
