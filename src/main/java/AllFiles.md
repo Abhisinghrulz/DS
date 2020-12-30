@@ -1,2 +1,2 @@
 
-[a link](.\array\dutchflag012\DutchFlag.java)
+[a link](array/dutchflag012/DutchFlag.java)
