@@ -2,6 +2,7 @@ package leetCode.LinkedList.LinkedListCycle1;
 
 import leetCode.LinkedList.ListNode;
 import leetCode.LinkedList.removeDuplicates.removeDuplicates2.RemoveDuplicates2;
+import leetCode.LinkedList.reverseLLUsingStack.ReverseList;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,9 +23,12 @@ public class Main {
         listNode5.next = listNode6;
 
         RemoveDuplicates2 removeDuplicates2 = new RemoveDuplicates2();
-        ListNode listNodeReturn = removeDuplicates2.deleteDuplicates2(listNode0);
+        //ListNode listNodeReturn = removeDuplicates2.deleteDuplicates2(listNode0);
         Main main = new Main();
-        main.showAll(listNodeReturn);
+        //main.showAll(listNodeReturn);
+        ReverseList reverseList = new ReverseList();
+        ListNode listNode = reverseList.reverseList(listNode0);
+        main.showAll(listNode);
 
     }
 

@@ -1,4 +1,4 @@
-package misc.numberOfIslands;
+package misc.matrixNoOfIsland.numberOfIslands;
 
 /**
  * https://www.youtube.com/watch?v=o8S2bO3pmO4&list=PLi9RQVmJD2fZGdIX-y3-X37YUAWxh6GqH&index=10
