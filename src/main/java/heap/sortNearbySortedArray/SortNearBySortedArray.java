@@ -1,30 +1,47 @@
 package heap.sortNearbySortedArray;
 
+import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.PriorityQueue;
 
 public class SortNearBySortedArray {
     public static void main(String[] args) {
-        int[] arr = {5, 6, 7, 8, 9};
+        int[] arr = {6,5,3,2,8,10,9};
         int k = 3;
 
-        PriorityQueue<Pair> maxHeap = new PriorityQueue<>(new Comparator<Pair>() {
-            @Override
-            public int compare(Pair pair1, Pair pair2) {
-                return pair2.getValue().compareTo(pair1.getValue());
-            }
-        });
+        SortNearBySortedArray.kSort(arr, arr.length, k);
+    }
 
-        for (int i = 0; i < arr.length; i++) {
-            maxHeap.add(new Pair(arr[i], arr[i] - k));
-            if (maxHeap.size() > k) {
-                maxHeap.poll();
-            }
+    private static void kSort(int[] arr, int n, int k)
+    {
+
+        // min heap
+        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
+
+        // add first k + 1 items to the min heap
+        for(int i = 0; i < k + 1; i++)
+        {
+            priorityQueue.add(arr[i]);
         }
 
-        while (maxHeap.size() > 0) {
-            System.out.println(maxHeap.poll().getKey());
+        int index = 0;
+        for(int i = k + 1; i < n; i++)
+        {
+            arr[index++] = priorityQueue.poll();
+            priorityQueue.add(arr[i]);
         }
+
+        Iterator<Integer> itr = priorityQueue.iterator();
+
+        while(itr.hasNext())
+        {
+            arr[index++] = priorityQueue.peek();
+            priorityQueue.poll();
+        }
+
+        System.out.println(Arrays.toString(arr));
+
     }
 
 }
