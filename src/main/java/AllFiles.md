@@ -166,3 +166,67 @@ printNodesAtKDistanceFromRoot](bst/BST.java)
 [VirtualQueue](queue/VirtualQueue.java)
 
 [LRUCache](queue/LRUCache/LRUCacheImpl.java)
+
+# Misc
+
+[Stock1](misc/bestTimeToBuyAndSellStock/bestTimeStock1/BestTimeToBuyAndSellStock.java)
+
+[Stock2](misc/bestTimeToBuyAndSellStock/bestTimeStock2/BestTimeToBuyAndSellStock2.java)
+
+[GenerateParenthesis](misc/generateParnathesis/GenerateParentheses.java)
+
+[GroupAnagrams](misc/groupAnagrams/GroupAnagrams.java)
+
+[HappyNumber](misc/happyNumber/HappyNumber.java)
+
+[NumberOfIslands](misc/matrixNoOfIsland/numberOfIslands/NOI.java)
+
+[MaxAreaOfIsland](misc/matrixNoOfIsland/maxAreaOfIsland/MaxAreaOfIsland.java)
+
+[WordSearch](misc/matrixNoOfIsland/wordSearch/WordSearch.java)
+
+[MergeIntervals](misc/mergeIntervals/MergeIntervals.java)
+
+[MoveZeroesToLeft](misc/moveZeroes/MoveZeroesToLeft.java)
+
+[MoveZeroesToRight](misc/moveZeroes/MoveZeroesToRight.java)
+
+[PascalTriangle](misc/pascalTriangle/PascalTriangle.java)
+
+[PowerOfANumber](misc/powerOfANumber/PowerOfANumber.java)
+
+[PowerOfTwo](misc/powerOfTwo/IsPowerOfTwo.java)
+
+[StoneJewels](misc/stonesJewels/StonesJewels.java)
+
+[WaterContainer](misc/WaterContainer/WaterContainer.java)
+
+[PlatformRequired](misc/PlatformRequired.java)
+
+# STRING
+
+[LongestSubstring](string/longestSubstring/LongestSubstring.java)
+
+[UniqueEmails](string/UniqueEmail/UniqueEmail2.PNG)
+
+# SORTING
+
+[BubbleSort](sorting/bubbleSort/BubbleSort.java)
+
+[SelectionSort](sorting/selectionSort/SelectionSort.java)
+
+[InsertionSort](sorting/insertionSort/InsertionSort.java)
+
+[MergeSort](sorting/mergeSort/MergeSort.java)
+
+# STACK
+
+[StackImpl](stack/basic/StackImpl.java)
+
+[StackSort](stack/misc/StackSort.java)
+
+[StackUsingQueue](stack/misc/StackUsingQueue.java)
+
+[MinStack](stack/misc/minStack/MinStack.java)
+
+[NearestSmallerToLeft NearestSmallerToRight NearestGreaterToLeft NearestGreaterToRight](stack/nearest)
