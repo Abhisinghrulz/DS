@@ -16,7 +16,7 @@
 
 [TwoSum](array/twoSum/TwoSum.java)
 
-#BINARY SEARCH TREE
+# BINARY SEARCH TREE
 
 [BST InsertItem Preorder Inorder PostOrder
 LevelOrderTraversal ReverseLevelOrderTraversal
@@ -56,9 +56,9 @@ printNodesAtKDistanceFromRoot](bst/BST.java)
 
 [InvertBinaryTree](bst/InvertBinaryTree.java)
 
-#DYNAMIC PROGRAMMING
+# DYNAMIC PROGRAMMING
 
-#0/1KNAPSACK
+# 0/1KNAPSACK
 
 [KnapsackZeroByOne](dp/avDp/knapsack/zeroByOne/zeroByOne/KnapsackTabulation.java)
 
@@ -71,7 +71,7 @@ printNodesAtKDistanceFromRoot](bst/BST.java)
 
 [CountSubset](dp/avDp/knapsack/zeroByOne/countSubset/SubsetProblem.java)
 
-#UNBOUNDED KNAPSACK
+# UNBOUNDED KNAPSACK
 [Unbounded](dp/avDp/knapsack/unbounded/unbounded/UnboundedKnapsack.java)
 
 [CoinChange1](dp/avDp/knapsack/unbounded/coinChange/coinChange1/CoinChange1.java)
@@ -79,7 +79,7 @@ printNodesAtKDistanceFromRoot](bst/BST.java)
 [CoinChange2](dp/avDp/knapsack/unbounded/coinChange/coinChange2/MinNoOfCoins.java)
 
 
-#LCS
+# LCS
 [LongestCommonSubsequence](dp/avDp/lcs/longestCommonSubsequence/LongestCommonSubsequence.java)
 
 [LongestCommonSubString](dp/avDp/lcs/longestCommonSubString/LongestCommonSubString.java)
@@ -92,22 +92,22 @@ printNodesAtKDistanceFromRoot](bst/BST.java)
 
 [LongestPalindromicSubsequence](dp/avDp/lcs/LongestPalindromicSubSequence/LongestPalindromicSubsequence.java)
 
-#LIS
+# LIS
 [LongestIncreasingSubsequence](dp/dpProblems/longestIncreasingSubsequence/LISApp.java)
 
 [MaxSubIncreasingSubsequence](dp/dpProblems/maxSumIncreasingSubsequence/MaxSumIncreasingSubsequence.java)
 
-#BACKTRACKING
+# BACKTRACKING
 [Permutation](dp/backtracking/permutation/Permutation.java)
 
 [Combination](dp/backtracking/combination/Combination.java)
 
 [NQueens](dp/backtracking/nQueens/NQueens.java)
 
-#DP MISC
+# DP MISC
 [HouseRobber](dp/leetCode/houseRobber/HouseRobber.java)
 
-#Heap
+# Heap
 [KthLargestInArray](heap/kthLargestInArray/KthLargest.java)
 
 [KthSmallestInArray](heap/kthSmallestInArray/KthSmallestInArray.java)
@@ -120,7 +120,7 @@ printNodesAtKDistanceFromRoot](bst/BST.java)
 
 [TopKFrequentNumbers](heap/topKFrequentNumbers/TopKFrequentNumbers.java)
 
-#LinkedList
+# LinkedList
 [LinkedListImplementation](linkedList/LinkedListImpl.java)
 
 [DetectLoopInLinkedList](linkedList/DetectLoopInLinkedList.java)
@@ -141,7 +141,7 @@ printNodesAtKDistanceFromRoot](bst/BST.java)
 
 [RemoveDuplicates2](leetCode/LinkedList/removeDuplicates/removeDuplicates2/RemoveDuplicates2.java)
 
-#System Design
+# System Design
 [MeetingRoom](systemDesign/bkp/oops/meetingRoom/MeetingRoom.md)
 
 [ParkingLot](systemDesign/bkp/oops/parkingLot/ParkingLot.jpg)
