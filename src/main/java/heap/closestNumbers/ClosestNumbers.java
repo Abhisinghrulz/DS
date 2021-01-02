@@ -9,8 +9,9 @@ public class ClosestNumbers {
     public static void main(String[] args) {
         int[] arr = {5, 6, 7, 8, 9};
         int k = 3;
+        int x = 7;
 
-        PriorityQueue<Pair> maxHeap = new PriorityQueue<>(new Comparator<Pair>() {
+        PriorityQueue<Pair> pq = new PriorityQueue<>(new Comparator<Pair>() {
             @Override
             public int compare(Pair pair1, Pair pair2) {
                 return pair2.getValue().compareTo(pair1.getValue());
@@ -18,14 +19,14 @@ public class ClosestNumbers {
         });
 
         for (int i = 0; i < arr.length; i++) {
-            maxHeap.add(new Pair(arr[i], arr[i] - k));
-            if (maxHeap.size() > k) {
-                maxHeap.poll();
+            pq.add(new Pair(arr[i], Math.abs(arr[i] - x)));
+            if (pq.size() > k) {
+                pq.poll();
             }
         }
 
-        while (maxHeap.size() > 0) {
-            System.out.println(maxHeap.poll().getKey());
+        while (pq.size() > 0) {
+            System.out.println(pq.poll().getKey());
         }
     }
 }

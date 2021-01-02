@@ -8,7 +8,7 @@ import java.util.PriorityQueue;
 public class TopKFrequentNumbers {
 
     public static void main(String[] args) {
-        int [] arr = {1,1,2,2,3,5,3,2,1};
+        int [] arr = {1,1,2,2,3,5,5,5,5,5,3,2,1};
         int n = arr.length;
         int k = 3;
         TopKFrequentNumbers.printTopKFrequentNumbers(arr, n, k);
@@ -33,13 +33,17 @@ public class TopKFrequentNumbers {
                 new PriorityQueue<>(new Comparator<Map.Entry<Integer, Integer>>() {
                     @Override
                     public int compare(Map.Entry<Integer, Integer> o1, Map.Entry<Integer, Integer> o2) {
-                        return o2.getValue().compareTo(o1.getValue());
+                        return o1.getValue().compareTo(o2.getValue());
                     }
                 });
 
         for(Map.Entry<Integer, Integer> entry: map.entrySet())
         {
             queue.add(entry);
+            if(queue.size()>k)
+            {
+                queue.remove();
+            }
         }
 
         for(int i=0; i<k; i++)

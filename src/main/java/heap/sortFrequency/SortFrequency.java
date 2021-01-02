@@ -1,14 +1,13 @@
 package heap.sortFrequency;
 
-import heap.topKFrequentNumbers.TopKFrequentNumbers;
-
+import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
 
 public class SortFrequency {
     public static void main(String[] args) {
-        int [] arr = {1,1,2,3,5,3,2,2,1,1};
+        int [] arr = {1,1,2,3,5,3,3,3,3,3,2,2,1,1};
         int n = arr.length;
         int k = 2;
         SortFrequency.printTopKFrequentNumbers(arr, n);
@@ -23,11 +22,14 @@ public class SortFrequency {
             }
         }
 
+
         PriorityQueue<Map.Entry<Integer, Integer> > queue =
-                new PriorityQueue<>(
-                        (a, b) -> a.getValue().equals(b.getValue()) ?
-                                Integer.compare(b.getKey(), a.getKey()) :
-                                Integer.compare(b.getValue(), a.getValue()));
+                new PriorityQueue<>(new Comparator<Map.Entry<Integer, Integer>>() {
+                    @Override
+                    public int compare(Map.Entry<Integer, Integer> o1, Map.Entry<Integer, Integer> o2) {
+                        return o2.getValue().compareTo(o1.getValue());
+                    }
+                });
 
         for(Map.Entry<Integer, Integer> entry: map.entrySet())
         {
