@@ -152,3 +152,17 @@ printNodesAtKDistanceFromRoot](bst/BST.java)
 [PrintMatrixBy90](matrixProblems/PrintMatrixBy90.java)
 
 [TransposeMatrix](matrixProblems/TransposeMatrix.java)
+
+# MultiThreading
+[DeadLock](multithreading/deadlock/MyDeadLock.java)
+
+[ProducerConsumerProblem](multithreading/producerConsumerProblem)
+
+[PrintEvenOdd](multithreading/printEvenOdd)
+
+# Queue
+[QueueImpl](queue/QueueImpl.java)
+
+[VirtualQueue](queue/VirtualQueue.java)
+
+[LRUCache](queue/LRUCache/LRUCacheImpl.java)
