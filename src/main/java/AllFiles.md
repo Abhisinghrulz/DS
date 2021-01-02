@@ -145,3 +145,10 @@ printNodesAtKDistanceFromRoot](bst/BST.java)
 [MeetingRoom](systemDesign/bkp/oops/meetingRoom/MeetingRoom.md)
 
 [ParkingLot](systemDesign/bkp/oops/parkingLot/ParkingLot.jpg)
+
+# Matrix
+[RotateMatrixBy90](matrixProblems/RotateMatrix90.java)
+
+[PrintMatrixBy90](matrixProblems/PrintMatrixBy90.java)
+
+[TransposeMatrix](matrixProblems/TransposeMatrix.java)
