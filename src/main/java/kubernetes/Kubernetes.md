@@ -25,5 +25,14 @@
 
 **The kubelet** is a service agent which controls and maintains group pf pods by checking pod specification using Kubernetes.
 
-Secrets are sensitive information like login credentials of the user. 
+**Secrets** are sensitive information like login credentials of the user. 
+
+**Service.yaml**
+An abstract way to expose an application running on a set of Pods as a network service.
+
+A **Deployment** provides declarative updates for Pods and ReplicaSets.
+
+Helm is our package manager for Kubernetes
+
+Tiller is the service that actually communicates with the Kubernetes API to manage our Helm packages.
 
