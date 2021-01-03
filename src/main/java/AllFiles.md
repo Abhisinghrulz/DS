@@ -230,3 +230,27 @@ printNodesAtKDistanceFromRoot](bst/BST.java)
 [MinStack](stack/misc/minStack/MinStack.java)
 
 [NearestSmallerToLeft NearestSmallerToRight NearestGreaterToLeft NearestGreaterToRight](stack/nearest)
+
+# BINARY SEARCH
+
+[BinarySearch](search/binarySearch/BinarySearch.java)
+
+[FirstOccurrence](search/binarySearch/FirstOccurrence.java)
+
+[LastOccurrence](search/binarySearch/LastOccurence.java)
+
+[CountOfElementInRotatedSortedArray](search/binarySearch/countOfElementInRotatedSorted/CountOfElementInRotatedSortedArray.md)
+
+[IndexOfRotatedSortedArray](search/binarySearch/IndexOfRotatedSortedArray.java)
+
+[FindElementInRotatedSortedArray](search/binarySearch/FindElementInRotatedSortedArray.java)
+
+[FloorOfAnElementInRotatedSortedArray](search/binarySearch/floorOfAnElement/FloorOfAnElement.java)
+
+[CeilOfAnElementInRotatedSortedArray](search/binarySearch/ceilOfElement/CeilOfElement.java)
+
+[MinimumDifferenceElement](search/binarySearch/minimumDifferenceElement/MinimumDiffElement.java)
+
+[SearchInsert](search/binarySearch/searchInsert/SearchInsertPosition.java)
+
+[PeakElement](search/binarySearch/findPeakElement/PeakElement.java)

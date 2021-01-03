@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GenerateParentheses {
-    public List<String> generateParenMItheses(int n) {
+    public List<String> generateParentheses(int n) {
         List<String> output_arr = new ArrayList<>();
         backtrack(output_arr, "", 0, 0, n);
         return output_arr;
